@@ -1,12 +1,4 @@
-version: '3.8'
 services:
-  mongo:
-    image: mongo:latest
-    ports:
-      - "27017:27017"
-    volumes:
-      - mongo-data:/data/db
-
   reservations:
     build:
       context: .
@@ -17,10 +9,6 @@ services:
       - '3000:3000'
     volumes:
       - .:/usr/src/app
-    environment:
-      - MONGODB_URI=mongodb://mongo:27017/sleepr
-    depends_on:
-      - mongo
-
-volumes:
-  mongo-data:
+      - /usr/src/app/node_modules
+  mongo:
+    image: mongo
