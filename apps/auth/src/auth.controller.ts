@@ -1,4 +1,11 @@
-import { Controller, Get, Post, Res, UseGuards } from '@nestjs/common';
+import {
+  Controller,
+  Post,
+  Res,
+  UseGuards,
+  UsePipes,
+  ValidationPipe,
+} from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { LocalAuthGuard } from './guards/local-auth.guard';
 import { CurrentUser } from '@app/common';
@@ -6,7 +13,6 @@ import { UserDocument } from './users/models/user.schema';
 import { Response } from 'express';
 import { MessagePattern, Payload } from '@nestjs/microservices';
 import { JwtAuthGuard } from './guards/jwt-auth.guard';
-import { log } from 'console';
 
 @Controller('auth')
 export class AuthController {
@@ -24,6 +30,7 @@ export class AuthController {
 
   @UseGuards(JwtAuthGuard)
   @MessagePattern('authenticate')
+  @UsePipes(new ValidationPipe())
   async authenticate(@Payload() data: any) {
     return data.user;
   }
