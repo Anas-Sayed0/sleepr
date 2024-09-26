@@ -1,0 +1,56 @@
+steps:
+  #Reservations
+  - name: 'gcr.io/cloud-builders/docker'
+    args: [
+    'build',
+    '-t',
+    'africa-south1-docker.pkg.dev/sleepr-436202/reservations',
+    '-f',
+    'apps/reservations/Dockerfile'
+    '.',
+    ]
+  - name: 'gcr.io/cloud-builders/docker'
+    args: [
+    'push', 'africa-south1-docker.pkg.dev/sleepr-436202/reservations']
+
+  #Notifications
+  - name: 'gcr.io/cloud-builders/docker'
+    args: [
+    'build',
+    '-t',
+    'africa-south1-docker.pkg.dev/sleepr-436202/notifications',
+    '-f',
+    'apps/notifications/Dockerfile'
+    '.',
+    ]
+  - name: 'gcr.io/cloud-builders/docker'
+    args: [
+    'push', 'africa-south1-docker.pkg.dev/sleepr-436202/notifications']
+
+  #Auth
+  - name: 'gcr.io/cloud-builders/docker'
+    args: [
+    'build',
+    '-t',
+    'africa-south1-docker.pkg.dev/sleepr-436202/auth',
+    '-f',
+    'apps/auth/Dockerfile'
+    '.',
+    ]
+  - name: 'gcr.io/cloud-builders/docker'
+    args: [
+    'push', 'africa-south1-docker.pkg.dev/sleepr-436202/auth']
+
+  #Payments
+  - name: 'gcr.io/cloud-builders/docker'
+    args: [
+    'build',
+    '-t',
+    'africa-south1-docker.pkg.dev/sleepr-436202/payments',
+    '-f',
+    'apps/payments/Dockerfile'
+    '.',
+    ]
+  - name: 'gcr.io/cloud-builders/docker'
+    args: [
+    'push', 'africa-south1-docker.pkg.dev/sleepr-436202/payments']
