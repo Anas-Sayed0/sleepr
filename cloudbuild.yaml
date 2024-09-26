@@ -1,56 +1,27 @@
 steps:
-  #Reservations
+  # Reservations
   - name: 'gcr.io/cloud-builders/docker'
-    args: [
-    'build',
-    '-t',
-    'africa-south1-docker.pkg.dev/sleepr-436202/reservations',
-    '-f',
-    'apps/reservations/Dockerfile',
-    '.',
-    ]
+    args: ['build', '-t', 'africa-south1-docker.pkg.dev/sleepr-436202/reservations', '-f', 'apps/reservations/Dockerfile', '.']
   - name: 'gcr.io/cloud-builders/docker'
-    args: [
-    'push', 'africa-south1-docker.pkg.dev/sleepr-436202/reservations']
+    args: ['push', 'africa-south1-docker.pkg.dev/sleepr-436202/reservations']
 
-  #Notifications
+  # Notifications
   - name: 'gcr.io/cloud-builders/docker'
-    args: [
-    'build',
-    '-t',
-    'africa-south1-docker.pkg.dev/sleepr-436202/notifications',
-    '-f',
-    'apps/notifications/Dockerfile',
-    '.',
-    ]
+    args: ['build', '-t', 'africa-south1-docker.pkg.dev/sleepr-436202/notifications', '-f', 'apps/notifications/Dockerfile', '.']
   - name: 'gcr.io/cloud-builders/docker'
-    args: [
-    'push', 'africa-south1-docker.pkg.dev/sleepr-436202/notifications']
+    args: ['push', 'africa-south1-docker.pkg.dev/sleepr-436202/notifications']
 
-  #Auth
+  # Auth
   - name: 'gcr.io/cloud-builders/docker'
-    args: [
-    'build',
-    '-t',
-    'africa-south1-docker.pkg.dev/sleepr-436202/auth',
-    '-f',
-    'apps/auth/Dockerfile',
-    '.',
-    ]
+    args: ['build', '-t', 'africa-south1-docker.pkg.dev/sleepr-436202/auth', '-f', 'apps/auth/Dockerfile', '.']
   - name: 'gcr.io/cloud-builders/docker'
-    args: [
-    'push', 'africa-south1-docker.pkg.dev/sleepr-436202/auth']
+    args: ['push', 'africa-south1-docker.pkg.dev/sleepr-436202/auth']
 
-  #Payments
+  # Payments
   - name: 'gcr.io/cloud-builders/docker'
-    args: [
-    'build',
-    '-t',
-    'africa-south1-docker.pkg.dev/sleepr-436202/payments',
-    '-f',
-    'apps/payments/Dockerfile',
-    '.',
-    ]
+    args: ['build', '-t', 'africa-south1-docker.pkg.dev/sleepr-436202/payments', '-f', 'apps/payments/Dockerfile', '.']
   - name: 'gcr.io/cloud-builders/docker'
-    args: [
-    'push', 'africa-south1-docker.pkg.dev/sleepr-436202/payments']
+    args: ['push', 'africa-south1-docker.pkg.dev/sleepr-436202/payments']
+
+options:
+  logging: CLOUD_LOGGING_ONLY
