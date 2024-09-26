@@ -3,25 +3,25 @@ steps:
   - name: 'gcr.io/cloud-builders/docker'
     args: ['build', '-t', 'africa-south1-docker.pkg.dev/sleepr-436202/reservations', '-f', 'apps/reservations/Dockerfile', '.']
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['push', 'africa-south1-docker.pkg.dev/sleepr-436202/reservations/production']
+    args: ['push', 'africa-south1-docker.pkg.dev/sleepr-436202/reservations/production:latest']
 
   # Notifications
   - name: 'gcr.io/cloud-builders/docker'
     args: ['build', '-t', 'africa-south1-docker.pkg.dev/sleepr-436202/notifications', '-f', 'apps/notifications/Dockerfile', '.']
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['push', 'africa-south1-docker.pkg.dev/sleepr-436202/notifications/production']
+    args: ['push', 'africa-south1-docker.pkg.dev/sleepr-436202/notifications/production:latest']
 
   # Auth
   - name: 'gcr.io/cloud-builders/docker'
     args: ['build', '-t', 'africa-south1-docker.pkg.dev/sleepr-436202/auth', '-f', 'apps/auth/Dockerfile', '.']
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['push', 'africa-south1-docker.pkg.dev/sleepr-436202/auth/production']
+    args: ['push', 'africa-south1-docker.pkg.dev/sleepr-436202/auth/production:latest']
 
   # Payments
   - name: 'gcr.io/cloud-builders/docker'
     args: ['build', '-t', 'africa-south1-docker.pkg.dev/sleepr-436202/payments', '-f', 'apps/payments/Dockerfile', '.']
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['push', 'africa-south1-docker.pkg.dev/sleepr-436202/payments/production']
+    args: ['push', 'africa-south1-docker.pkg.dev/sleepr-436202/payments/production:latest']
 
 options:
   logging: CLOUD_LOGGING_ONLY
