@@ -6,7 +6,7 @@ steps:
     '-t',
     'africa-south1-docker.pkg.dev/sleepr-436202/reservations',
     '-f',
-    'apps/reservations/Dockerfile'
+    'apps/reservations/Dockerfile',
     '.',
     ]
   - name: 'gcr.io/cloud-builders/docker'
