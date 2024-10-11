@@ -47,5 +47,6 @@ services:
     volumes:
       - .:/usr/src/app
       - /usr/src/app/node_modules
+      - /usr/src/app/apps/notifications/node_modules
   mongo:
     image: mongo
